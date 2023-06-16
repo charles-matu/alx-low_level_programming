@@ -2,7 +2,8 @@
 #include <ctype.h>
 
 /**
- * main - Prints all single digits with a comma and space, followed by a new line
+ * main - Prints all single digits separated by a comma and space,
+ *        followed by a new line
  *
  * Return: Always 0
  */
@@ -14,11 +15,11 @@ int main(void)
 	{
 		putchar(digit); /* Print the current digit */
 
-		if (digit == '9')
-			continue;
-
-		putchar(','); /* Print a comma */
-		putchar(' '); /* Print a space */
+		if (digit != '9')
+		{
+			putchar(','); /* Print a comma */
+			putchar(' '); /* Print a space */
+		}
 	}
 
 	putchar('\n'); /* Print a new line */
