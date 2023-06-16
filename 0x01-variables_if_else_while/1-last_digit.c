@@ -13,22 +13,23 @@ int main(void)
 	int last;
 
 	srand(time(0)); /* Seed the random number generator */
-	n = rand() - RAND_MAX / 2; /* Generate a random number between -RAND_MAX/2 and RAND_MAX/2 */
-	last = n % 10; /* Get the last digit of n using modulo operator */
+	n = rand() - RAND_MAX / 2; /* Generate a random number */
+
+	last = n % 10; /* note to charles Get the last digit of n using modulo operator */
 
 	if (last == 0)
 	{
-		printf("Last digit of %d is %d and is 0\n", n, last); /* Print the last digit and its properties */
+		printf("Last digit of %d is %d and is 0\n", n, last);
 	}
 	else
 	{
 		if (last > 5)
 		{
-			printf("Last digit of %d is %d and is greater than 5\n", n, last); /* Print the last digit and its properties */
+			printf("Last digit of %d is %d and is greater than 5\n", n, last);
 		}
 		else if (last < 6)
 		{
-			printf("Last digit of %d is %d and is less than 6 and not 0\n", n, last); /* Print the last digit and its properties */
+			printf("Last digit of %d is %d and is less than 6 and not 0\n", n, last);
 		}
 	}
 
