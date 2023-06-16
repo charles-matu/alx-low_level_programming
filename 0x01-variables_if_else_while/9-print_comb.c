@@ -1,29 +1,28 @@
 #include <stdio.h>
+#include <ctype.h>
+
 /**
-*main - Prints all combinations of two digits with,
-* and space followed by new line
-*
-*Return: returns 0
-*/
+ * main - Prints all single digits with a comma and space, followed by a new line
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-	int digit1, digit2;
+	int digit;
 
-	for (digit1 = 0; digit1 < 9; digit1++)
+	for (digit = '0'; digit <= '9'; digit++)
 	{
-		for (digit2 = digit1 + 1; digit2 < 10; digit2++)
-		{
+		putchar(digit); /* Print the current digit */
 
-			putchar((digit1 % 10) + '0');
-			putchar((digit2 % 10) + '0');
+		if (digit == '9')
+			continue;
 
-			if (digit1 == 8 && digit2 == 9)
-				continue;
-
-			putchar(',');
-			putchar(' ');
-		}
+		putchar(','); /* Print a comma */
+		putchar(' '); /* Print a space */
 	}
-	putchar('\n');
+
+	putchar('\n'); /* Print a new line */
+
 	return (0);
 }
+
