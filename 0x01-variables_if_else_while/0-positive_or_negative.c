@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 /**
-*main - entry point of programs is
-charles i.get it running
-        ii.no errors
+*main - entry point of programs
 *
 *Return: return 0
 */
