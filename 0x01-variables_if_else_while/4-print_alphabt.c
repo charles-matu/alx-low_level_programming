@@ -14,11 +14,11 @@ int main(void)
 	{
 		if (letter == 'q' || letter == 'e')
 		{
-			continue; // Skip printing 'q' and 'e'
+			continue; /* Skip printing 'q' and 'e' */
 		}
-		putchar(letter); // Print the current letter
+		putchar(letter); /* Print the current letter */
 	}
-	putchar('\n'); // Print a new line after printing all the letters
+	putchar('\n'); /* Print a new line after printing all the letters */
 
 	return (0);
 }
