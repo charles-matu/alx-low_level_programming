@@ -8,29 +8,25 @@
  */
 int main(void)
 {
-	int digit1, digit2;
+    int digit1, digit2;
 
-	for (digit1 = 0; digit1 < 9; digit1++)
-	{
-		for (digit2 = digit1 + 1; digit2 < 10; digit2++)
-		{
-			/* Print the first digit */
-			putchar((digit1 % 10) + '0');
+    for (digit1 = 0; digit1 < 9; digit1++)
+    {
+        for (digit2 = digit1 + 1; digit2 < 10; digit2++)
+        {
+            putchar((digit1 % 10) + '0');
+            putchar((digit2 % 10) + '0');
 
-			/* Print the second digit */
-			putchar((digit2 % 10) + '0');
+            if (!(digit1 == 8 && digit2 == 9))
+            {
+                putchar(',');
+                putchar(' ');
+            }
+        }
+    }
 
-			/* Add a comma and space unless it's the last combination */
-			if (digit1 == 8 && digit2 == 9)
-				continue;
+    putchar('\n');
 
-			putchar(',');
-			putchar(' ');
-		}
-	}
-
-	putchar('\n'); /* Print a new line */
-
-	return (0);
+    return (0);
 }
 
