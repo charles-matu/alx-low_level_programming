@@ -12,10 +12,10 @@ int main(void)
 
 	for (letter = 'a'; letter <= 'z'; letter++)
 	{
-		letter = tolower(letter); // Convert the letter to lowercase
-		putchar(letter); // Print the current letter
+		letter = tolower(letter); /* Convert the letter to lowercase */
+		putchar(letter); /* Print the current letter */
 	}
-	putchar('\n'); // Print a new line after printing all the letters
+	putchar('\n'); /* Print a new line after printing all the letters */
 
 	return (0);
 }
