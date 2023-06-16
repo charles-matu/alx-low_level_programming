@@ -16,8 +16,10 @@ int main(void)
 		{
 			continue; /* Skip printing 'q' and 'e' */
 		}
+
 		putchar(letter); /* Print the current letter */
 	}
+
 	putchar('\n'); /* Print a new line after printing all the letters */
 
 	return (0);
