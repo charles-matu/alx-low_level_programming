@@ -15,7 +15,7 @@ int main(void)
 	srand(time(0)); /* Seed the random number generator */
 	n = rand() - RAND_MAX / 2; /* Generate a random number */
 
-	last = n % 10; /* note to charles Get the last digit of n using modulo operator */
+	last = n % 10; /* Get the last digit of n using modulo operator */
 
 	if (last == 0)
 	{
