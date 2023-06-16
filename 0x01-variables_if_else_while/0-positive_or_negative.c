@@ -1,28 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+/**
+*main - entry point of programs is
+charles i.get it running
+        ii.no errors
+*
+*Return: return 0
+*/
 int main(void)
 {
 	int n;
 
-	srand(time(0)); // Seed the random number generator
-
-	n = rand() - RAND_MAX / 2; // Generate a random number between -RAND_MAX/2 and RAND_MAX/2
-
-	if (n < 0) // Check if n is negative
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	if (n < 0)
 	{
-		printf("%d is negative\n", n); // Print the value of n along with the message for negative numbers
+		printf("%d is negative\n", n);
 	}
-	else if (n > 0) // Check if n is positive
+	else if (n > 0)
 	{
-		printf("%d is positive\n", n); // Print the value of n along with the message for positive numbers
+		printf("%d is positive\n", n);
 	}
-	else // n is neither positive nor negative, so it must be zero
-	{
-		printf("%d is zero\n", n); // Print the value of n along with the message for zero
-	}
-
-	return 0;
+	else
+		printf("%d is zero\n", n);
+	return (0);
 }
-
