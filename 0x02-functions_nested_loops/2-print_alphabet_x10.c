@@ -1,9 +1,7 @@
 #include "main.h"
 
 /**
- * print_alphabet_x10 - prints the alphabet 10 times, followed by a new line each time.
- *
- * Return: void
+ * print_alphabet_x10 - Prints the alphabet 10 times.
  */
 void print_alphabet_x10(void)
 {
@@ -15,12 +13,13 @@ void print_alphabet_x10(void)
 		letter = 'a';
 		while (letter <= 'z')
 		{
-			_putchar(letter); /* Print the current letter */
+			_putchar(letter);
 			letter++;
 		}
-		_putchar('\n'); /* Print a new line after printing the alphabet */
+		_putchar('\n');
 
 		round++;
 	}
 }
+
 

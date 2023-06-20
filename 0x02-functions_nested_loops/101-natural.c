@@ -1,38 +1,39 @@
 #include <stdio.h>
 
 /**
- * fibonacci_sum_even - Computes the sum of even-valued terms
- *                      in the Fibonacci sequence up to a limit.
- * @limit: The limit up to which the Fibonacci sequence is computed.
+ * natural_sum - Computes the sum of multiples of 3 or 5 below a given limit.
+ * @limit: The upper limit (exclusive) for finding multiples.
  *
- * Return: The sum of even-valued terms in the Fibonacci sequence.
+ * Return: The sum of the multiples of 3 or 5 below the given limit.
  */
-unsigned long fibonacci_sum_even(unsigned long limit)
+int natural_sum(int limit)
 {
-	unsigned long sum = 0;
-	unsigned long prev = 0;
-	unsigned long curr = 1;
+	int sum = 0;
+	int i;
 
-	while (curr <= limit)
+	for (i = 0; i < limit; i++)
 	{
-		if (curr % 2 == 0)
-			sum += curr;  // Add the even-valued term to the sum
-
-		unsigned long next = prev + curr;  // Compute the next Fibonacci number
-		prev = curr;
-		curr = next;
+		if (i % 3 == 0 || i % 5 == 0)
+		{
+			sum += i;
+		}
 	}
 
-	return sum;
+	return (sum);
 }
 
+/**
+ * main - Entry point of the program.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-	unsigned long limit = 4000000;
-	unsigned long sum = fibonacci_sum_even(limit);
+	int limit = 1024;
+	int sum = natural_sum(limit);
 
-	printf("Sum of even-valued terms in the Fibonacci sequence up to %lu: %lu\n", limit, sum);
+	printf("Sum of multiples of 3 or 5 below %d: %d\n", limit, sum);
 
-	return 0;
+	return (0);
 }
 

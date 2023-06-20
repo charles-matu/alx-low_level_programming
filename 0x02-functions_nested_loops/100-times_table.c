@@ -4,15 +4,16 @@
  * print_times_table - prints the times table
  * @n: integer for which the times table will be printed
  *
- * Description: prints the times table up to a given number 'n'
- *              The number 'n' should be between 0 and 14.
- *              If 'n' is outside this range, no table is printed.
+ * Description: prints the times table
+ *
+ * Return: void
  */
+
 void print_times_table(int n)
 {
 	int row, column, product;
 
-	if (n >= 0 && n < 15) /* Check if 'n' is within the valid range of 0 to 14 */
+	if (n >= 0 && n < 15)
 	{
 		for (row = 0; row <= n; row++)
 		{
@@ -48,10 +49,6 @@ void print_times_table(int n)
 				}
 			}
 			_putchar('\n');
-			/* Charles, please note that each row of the times table is followed by a new line character */
 		}
 	}
-	/* Charles, if 'n' is outside the valid range, no table is printed */
-	/* The function will simply return without any output */
 }
-

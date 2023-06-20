@@ -16,16 +16,16 @@ int main(void)
 
 	for (count = 0; count < 50; count++)
 	{
-		sum = fib1 + fib2;  // Compute the next Fibonacci number
-		printf("%lu", sum);  // Print the Fibonacci number
+		sum = fib1 + fib2;  /* Compute the next Fibonacci number */
+		printf("%lu", sum);  /* Print the Fibonacci number */
 
-		fib1 = fib2;  // Update the values for the next iteration
+		fib1 = fib2;  /* Update the values for the next iteration */
 		fib2 = sum;
 
 		if (count == 49)
-			printf("\n");  // Print a newline after the last number
+			printf("\n");  /* Print a newline after the last number */
 		else
-			printf(", ");  // Print a comma and space between numbers
+			printf(", ");  /* Print a comma and space between numbers */
 	}
 
 	return (0);
