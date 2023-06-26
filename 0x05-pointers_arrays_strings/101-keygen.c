@@ -2,39 +2,28 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_KEY_LENGTH 100
-
 /**
- * generate_key - Generates a random key of specified length.
- * @length: The length of the key to generate.
- * @key: The array to store the generated key.
- */
-void generate_key(int length, char key[])
-{
-	int i;
-
-	srand((unsigned int)time(NULL));
-
-	for (i = 0; i < length; i++)
-	{
-		key[i] = rand() % 26 + 'A'; /* Generate random uppercase letters */
-	}
-
-	key[length] = '\0';
-}
-
-/**
- * main - Entry point of the program.
- * Return: 0 on successful execution.
+ * main - Generates a keygen.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-	int keyLength = 10;
-	char key[MAX_KEY_LENGTH];
+	int r = 0, c = 0;
+	time_t t;
 
-	generate_key(keyLength, key);
+	srand((unsigned int)time(&t));
 
-	printf("Generated key: %s\n", key);
+	while (c < 2772)
+	{
+		r = rand() % 128;
+		if ((c + r) > 2772)
+			break;
+		c = c + r;
+		printf("%c", r);
+	}
+
+	printf("%c\n", (2772 - c));
 
 	return (0);
 }
