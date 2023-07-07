@@ -4,31 +4,39 @@
 /**
  * main - Entry point of the program.
  *        Prints the minimum number of coins needed to make change
- *        for an amount of money.
+ *        for a given amount of money.
  * @argc: The number of command-line arguments.
  * @argv: An array of strings containing the command-line arguments.
  *
  * Return: 0 if successful, 1 if error.
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int total, count;
-	unsigned int i;
-	char *p;
-	int cents[] = {25, 10, 5, 2};
+	int cents, ncoins = 0;
 
-	if (argc != 2)
+	if (argc == 1 || argc > 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	total = strtol(argv[1], &p, 10);
-	count = 0;
+	cents = atoi(argv[1]);
 
-	if (!*p)
+	while (cents > 0)
 	{
-		while (total > 1)
-		{
-			for (i = 0;
+		if (cents >= 25)
+			cents -= 25;
+		else if (cents >= 10)
+			cents -= 10;
+		else if (cents >= 5)
+			cents -= 5;
+		else if (cents >= 2)
+			cents -= 2;
+		else if (cents >= 1)
+			cents -= 1;
+		ncoins += 1;
+	}
+	printf("%d\n", ncoins);
+	return (0);
+}
 
