@@ -1,31 +1,32 @@
-#include <stdlib.h>
 #include "main.h"
 
 /**
- * array_range - Create array of integers
+ * _calloc - Allocate memory for an array
+ *           of nmemb elements of size bytes
+ *           each and return a pointer.
  *
- * @min: Minimum value
- * @max: Maximum value
+ * @nmemb: Number of elements to allocate memory for.
+ * @size: Size of each element in bytes.
  *
- * Return: Pointer to array, or NULL on failure or invalid range
+ * Return: Pointer to the allocated memory,
+ *         or NULL on failure or invalid input.
  */
-int *array_range(int min, int max)
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *ptr; /* Pointer to array */
-	int size, i; /* Array size and loop counter */
+	char *a; /* Pointer to allocated memory */
+	unsigned int b; /* Loop counter */
 
-	if (min > max)
-		return (NULL); /* Invalid range, return NULL */
+	if (nmemb == 0 || size == 0)
+		return (NULL); /* Invalid input, return NULL */
 
-	size = max - min + 1; /* Calculate array size */
-	ptr = malloc(size * sizeof(int)); /* Allocate memory */
+	a = malloc(nmemb * size); /* Allocate memory */
 
-	if (ptr == NULL)
+	if (a == NULL)
 		return (NULL); /* Allocation failed, return NULL */
 
-	for (i = 0; i < size; i++)
-		ptr[i] = min++; /* Fill array with values */
+	for (b = 0; b < (nmemb * size); b++)
+		a[b] = 0; /* Initialize allocated memory to 0 */
 
-	return (ptr); /* Return array pointer */
+	return (a); /* Return pointer to allocated memory */
 }
 
