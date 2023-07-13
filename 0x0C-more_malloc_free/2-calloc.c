@@ -1,41 +1,31 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * _realloc - Reallocates a memory block using malloc and free.
- * @ptr: Pointer to the memory block to be reallocated.
- * @old_size: Old size of the memory block in bytes.
- * @new_size: New size of the memory block in bytes.
+ * array_range - Create array of integers
  *
- * Return: Pointer to the reallocated memory block, or NULL on failure.
+ * @min: Minimum value
+ * @max: Maximum value
+ *
+ * Return: Pointer to array, or NULL on failure or invalid range
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+int *array_range(int min, int max)
 {
-	char *old_ptr = ptr; /* Original pointer to the memory block */
-	char *new_ptr; /* New pointer for the reallocated memory */
-	unsigned int i; /* Loop counter */
+	int *ptr; /* Pointer to array */
+	int size, i; /* Array size and loop counter */
+
+	if (min > max)
+		return (NULL); /* Invalid range, return NULL */
+
+	size = max - min + 1; /* Calculate array size */
+	ptr = malloc(size * sizeof(int)); /* Allocate memory */
 
 	if (ptr == NULL)
-		return (malloc(new_size)); /* Allocate new memory block */
-
-	if (new_size == old_size)
-		return (ptr); /* No need to reallocate, return original pointer */
-
-	if (new_size == 0 && ptr != NULL)
-	{
-		free(ptr);
-		return (NULL); /* Free memory block and return NULL */
-	}
-
-	new_ptr = malloc(new_size); /* Allocate new memory block */
-	if (new_ptr == NULL)
 		return (NULL); /* Allocation failed, return NULL */
 
-	/* Copy contents from the old memory block to the new one */
-	for (i = 0; i < old_size && i < new_size; i++)
-		new_ptr[i] = old_ptr[i];
+	for (i = 0; i < size; i++)
+		ptr[i] = min++; /* Fill array with values */
 
-	free(ptr); /* Free the old memory block */
-	return (new_ptr); /* Return the new allocated memory block */
+	return (ptr); /* Return array pointer */
 }
 
