@@ -1,8 +1,10 @@
+#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
  * _calloc - Allocate memory for an array of nmemb
- *           elements of size bytes each. Initialize
+ *           elements of size bytes each and initializes
  *           the allocated memory to 0.
  *
  * @nmemb: Number of elements.
@@ -20,7 +22,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if (ptr != NULL)
 	{
-		unsigned char *byte_ptr = (unsigned char *)ptr;
+		char *byte_ptr = ptr;
 		unsigned int i;
 
 		for (i = 0; i < nmemb * size; i++)
