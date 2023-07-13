@@ -1,34 +1,44 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * _calloc - Allocate memory for an array of nmemb
- *           elements of size bytes each and initializes
- *           the allocated memory to 0.
+ * _realloc - Reallocates a memory block using malloc and free.
+ * @ptr: Pointer to the memory block to be reallocated.
+ * @old_size: Old size of the memory block in bytes.
+ * @new_size: New size of the memory block in bytes.
  *
- * @nmemb: Number of elements.
- * @size: Size of each element in bytes.
- *
- * Return: Pointer to the allocated memory, or NULL
- *         on failure or if nmemb/size is 0.
+ * Return: Pointer to the reallocated memory block, or NULL on failure.
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-
-	void *ptr = malloc(nmemb * size);
+	char *clone, *relloc;
+	unsigned int i;
 
 	if (ptr != NULL)
+		clone = ptr;
+	else
 	{
-		char *byte_ptr = ptr;
-		unsigned int i;
-
-		for (i = 0; i < nmemb * size; i++)
-			byte_ptr[i] = 0;
+		return (malloc(new_size));
 	}
 
-	return (ptr);
+	if (new_size == old_size)
+		return (ptr);
+
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (0);
+	}
+
+	relloc = malloc(new_size);
+	if (relloc == NULL)
+		return (0);
+
+	for (i = 0; i < old_size || i < new_size; i++)
+	{
+		*(relloc + i) = clone[i];
+	}
+
+	free(ptr);
+	return (relloc);
 }
 
