@@ -1,51 +1,52 @@
+#include <stdio.h>
+#include <stdarg.h>
 #include "variadic_functions.h"
 
 /**
- * print_all - Prints all arguments when specified.
- * @format: Specifies the operations.
+ * print_all - Prints arguments based on the specified format
+ * @format: Format string containing types of arguments
  *
- * Return: Void.
+ * Return: void
  */
-void print_all(const char *const format, ...)
+void print_all(const char * const format, ...)
 {
-	int flag = 0; /* Track valid format specifiers */
-	char *str; /* Placeholder for string argument */
-	va_list a_list; /* Variable argument list */
+	va_list args;
+	unsigned int i = 0;
+	char *str;
 
-	va_start(a_list, format); /* Initialize argument pointer */
+	va_start(args, format);
 
-	while (*format)
+	while (format != NULL && format[i] != '\0')
 	{
-		switch (*format)
+		switch (format[i])
 		{
-			case 'c': /* Char format */
-				printf("%c", va_arg(a_list, int)); /* Print char */
+			case 'c':
+				printf("%c", va_arg(args, int));
 				break;
-			case 'i': /* Int format */
-				printf("%i", va_arg(a_list, int)); /* Print int */
+			case 'i':
+				printf("%d", va_arg(args, int));
 				break;
-			case 'f': /* Float format */
-				printf("%f", va_arg(a_list, double)); /* Print float */
+			case 'f':
+				printf("%f", va_arg(args, double));
 				break;
-			case 's': /* String format */
-				str = va_arg(a_list, char*); /* Get next string arg */
+			case 's':
+				str = va_arg(args, char *);
 				if (str == NULL)
-					str = "(nil)"; /* Print "(nil)" for NULL */
-				printf("%s", str); /* Print string */
+					str = "(nil)";
+				printf("%s", str);
 				break;
 			default:
-				flag = 1; /* Invalid format */
 				break;
 		}
 
-		if (flag == 0 && *(format + 1) != '\0')
-			printf(", "); /* Comma and space */
+		if (format[i + 1] != '\0' && (format[i] == 'c' || format[i] == 'i' ||
+					     format[i] == 'f' || format[i] == 's'))
+			printf(", ");
 
-		flag = 0; /* Reset flag */
-		format++; /* Move to next character */
+		i++;
 	}
 
-	printf("\n"); /* New line after all arguments */
-	va_end(a_list); /* Clean up argument list */
+	printf("\n");
+	va_end(args);
 }
 
