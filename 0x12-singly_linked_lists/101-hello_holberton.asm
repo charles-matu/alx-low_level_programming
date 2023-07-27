@@ -1,20 +1,17 @@
-section .data
-    msg db "Hello, Holberton", 0  ; C string needs null terminator
-    fmt db "%s", 10, 0           ; The printf format, newline and null terminator
+SECTION .data
+msg:	db "Hello, Holberton", 0   ; C string needs null terminator
+fmt:	db "%s", 10, 0           ; The printf format, newline and null terminator
 
-section .text
-    global main                 ; the standard gcc entry point
+SECTION .text
+	extern printf
+	global main
 
-main:                          ; the program label for the entry point
-    push rbp                   ; set up stack frame, aligned
+main:
+	mov esi, msg                ; Load address of msg into esi
+	mov edi, fmt                ; Load address of fmt into edi
+	mov eax, 0                  ; Clear eax (return value) to avoid garbage data
+	call printf                 ; Call C function printf
 
-    mov rdi, fmt               ; load format string
-    mov rsi, msg               ; load message string
-    xor rax, rax               ; clear rax (return value)
-    call printf                ; Call C function printf
-
-    pop rbp                    ; restore stack
-
-    xor rax, rax               ; clear rax (return value) for normal exit
-    ret                        ; return
+	mov eax, 0                  ; Set eax to 0 for normal exit
+	ret                         ; Return from the main function
 
