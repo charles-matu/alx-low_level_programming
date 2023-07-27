@@ -1,20 +1,33 @@
-section .data
-msg db "Hello, Holberton", 0 ; C string needs null terminator
-fmt db "%s", 10, 0          ; The printf format, newline and null terminator
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "lists.h"
 
-section .text
-global main                 ; the standard gcc entry point
+/**
+ * print_list - Print elements of a linked list.
+ * @h: Pointer to the head of the list.
+ *
+ * Description:
+ * This function prints the content and length of each node in the linked list.
+ * If the string in a node is NULL, it prints "[0] (nil)". The function returns
+ * the total number of nodes in the list.
+ *
+ * Return: The number of nodes in the list.
+ */
+size_t print_list(const list_t *h)
+{
+	int count = 0; /* Count nodes. */
 
-main:                          ; the program label for the entry point
-    push rbp                   ; set up stack frame, aligned
+	while (h)
+	{
+		if (h->str == NULL)
+			printf("[0] (nil)\n"); /* Format for NULL strings. */
+		else
+			printf("[%d] %s\n", h->len, h->str); /* Format for non-NULL strings. */
 
-    mov rdi, fmt               ; load format string
-    mov rsi, msg               ; load message string
-    xor rax, rax               ; clear rax (return value)
-    call printf                ; Call C function printf
-
-    pop rbp                    ; restore stack
-
-    xor rax, rax               ; clear rax (return value) for normal exit
-    ret                        ; return
+		count++; /* Increment node count. */
+		h = h->next; /* Move to the next node. */
+	}
+	return (count); /* Return node count. */
+}
 
