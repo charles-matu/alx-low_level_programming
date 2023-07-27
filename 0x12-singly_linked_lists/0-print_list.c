@@ -8,24 +8,24 @@
  * @h: Pointer to the head of the list.
  * Return: Number of nodes.
  *
- * Description: Traverse the linked list and print each node's content and length.
- * Print "[0] (nil)" for NULL strings.
+ * Description: Traverse the list and print each node's content and length.
+ *              Print "[0] (nil)" for NULL strings.
  */
 size_t print_list(const list_t *h)
 {
-    int count = 0; // Initialize node count.
+	int count = 0; /* Initialize node count. */
 
-    while (h)
-    {
-        if (h->str == NULL)
-            printf("[0] (nil)\n"); // Format for NULL strings.
-        else
-            printf("[%d] %s\n", h->len, h->str); // Format for non-NULL strings.
+	while (h)
+	{
+		if (h->str == NULL)
+			printf("[0] (nil)\n"); /* Format for NULL strings. */
+		else
+			printf("[%d] %s\n", h->len, h->str); /* Format for non-NULL strings. */
 
-        count++; // Increment node count.
-        h = h->next; // Move to the next node.
-    }
+		count++; /* Increment node count. */
+		h = h->next; /* Move to the next node. */
+	}
 
-    return (count); // Return node count.
+	return (count); /* Return node count. */
 }
 
