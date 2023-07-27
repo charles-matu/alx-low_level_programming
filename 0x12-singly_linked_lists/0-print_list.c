@@ -1,25 +1,32 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * print_list - Prints all the elements of a list_t list.
- * @h: Pointer to the head of the singly linked list.
+ * print_list - check the code for Holberton School students.
+ * @h: name of the list
+ * Return: the number of nodes.
  *
- * Return: The number of elements in the list.
+ *
+ * Descrription: -a program that returns the number of nodes
  */
 size_t print_list(const list_t *h)
 {
-	size_t nelem; /* Counter for the number of elements in the list. */
+	int count = 0;
 
-	nelem = 0;
-	while (h != NULL) /* Traverse through the list. */
+	while (h)
 	{
-		if (h->str == NULL) /* Check if the string is NULL. */
-			printf("[%d] %s\n", 0, "(nil)"); /* Print element with NULL string. */
+		if (h->str == NULL)
+		{
+			printf("[0] (nil)\n");
+		}
 		else
-			printf("[%d] %s\n", h->len, h->str); /* Print element with string. */
-		h = h->next; /* Move to the next node. */
-		nelem++; /* Increment the element counter. */
+		{
+		printf("[%d] %s\n", h->len, h->str);
+		}
+		count++;
+		h = h->next;
 	}
-	return (nelem); /* Return the number of elements in the list. */
+	return (count);
 }
-
